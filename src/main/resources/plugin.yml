@@ -1,0 +1,8 @@
+name: NoMonsterPlugin
+version: '${project.version}'
+main: de.hegi.nomonsterplugin.Main
+api-version: 1.19
+prefix: [ NoMonsterPlugin ]
+authors: [ GamerHegi64 ]
+description: No monsters will spawn.
+website: https://hegi.systems
