@@ -6,3 +6,9 @@ prefix: [ NoMonsterPlugin ]
 authors: [ GamerHegi64 ]
 description: No monsters will spawn.
 website: https://hegi.systems
+
+commands:
+  nomonster:
+    permission: nomonster.command.nomonster
+    description: "Enable or disable monster spawning in current world."
+    usage: "/nomonster <true|false>"

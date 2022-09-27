@@ -1,5 +1,6 @@
 package de.hegi.nomonsterplugin;
 
+import de.hegi.nomonsterplugin.commands.NoMonsterCommand;
 import de.hegi.nomonsterplugin.listeners.EntitySpawnEventListener;
 import de.hegi.nomonsterplugin.config.Config;
 import org.bukkit.Bukkit;
@@ -28,6 +29,8 @@ public final class Main extends JavaPlugin {
     Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "The No Monster Plugin loaded!");
     PluginManager manager = Bukkit.getPluginManager();
     manager.registerEvents(new EntitySpawnEventListener(), this);
+
+    getCommand("nomonster").setExecutor(new NoMonsterCommand());
   }
 
   @Override
