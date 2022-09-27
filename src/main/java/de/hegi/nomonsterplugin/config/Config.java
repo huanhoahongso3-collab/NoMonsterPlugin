@@ -1,55 +1,50 @@
 package de.hegi.nomonsterplugin.config;
-import de.hegi.nomonsterplugin.Main;
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration
-import org.bukkit.configuration.file.YamlConfiguration
-import org.bukkit.plugin.Plugin;
 
-import java.io.File
+import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.FieldPosition;
 
-class Config(private val name: String) {
+public class Config {
 
-    private File configFile;
-    private FileConfiguration config;
-    private Plugin plugin = Bukkit.getPluginManager().getPlugin('NoMonsterPlugin');
-    init {
-        load(false)
+  private final File file;
+  private final YamlConfiguration config;
+
+  public Config() {
+    File dir = new File("./plugins/NoMonsterPlugin");
+
+    if (!dir.exists()) {
+      dir.mkdirs();
     }
 
-    private fun load(reset: Boolean) {
-        configFile = File(plugin.dataFolder, "$name.yml")
-        if (!configFile.exists() || reset) {
-            configFile.parentFile.mkdirs()
-            plugin.saveResource("$name.yml", true)
-            configFile.createNewFile()
-        }
-        config = YamlConfiguration()
-        try {
-            config.load(configFile)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            consoleMessage("$prefix §c$name.yml Config failed to load! ^^ Reason above ^^")
-            consoleMessage("$prefix §cCopy and Save your §nlatest.log§f §cto get Support!")
-        }
+    this.file = new File(dir, "config.yml");
+
+    if (!file.exists()) {
+      try {
+        file.createNewFile();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
 
-    fun getConfig(): FileConfiguration {
-        return config
-    }
+    this.config = YamlConfiguration.loadConfiguration(file);
+  }
 
-    fun save() {
-        config.save(configFile)
-    }
+  public YamlConfiguration getConfig() {
+    return config;
+  }
 
-    fun reset() {
-        configFile.delete()
-        configFile.deleteOnExit()
-        load(true)
-    }
+  public File getFile() {
+    return file;
+  }
 
-    fun reload(): FileConfiguration {
-        load(false)
-        return config
+  public void save() {
+    try {
+      config.save(file);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
+
 }
