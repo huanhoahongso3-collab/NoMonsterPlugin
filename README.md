@@ -11,7 +11,7 @@ enable or disable the plugin for all worlds or a single worlds
 #### usage
 
 - /nomonster <enable|disable>
-- /nomonster <world> <enable|disable>
+- /nomonster \<world> \<enable|disable>
 
 #### examples
 
