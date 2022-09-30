@@ -11,4 +11,4 @@ commands:
   nomonster:
     permission: nomonster.command.nomonster
     description: "Enable or disable monster spawning in current world."
-    usage: "/nomonster <true|false>"
+    usage: "/nomonster <world> <enable|disable>"
