@@ -1,6 +1,7 @@
 package de.hegi.nomonsterplugin;
 
 import de.hegi.nomonsterplugin.commands.NoMonsterCommand;
+import de.hegi.nomonsterplugin.commands.completion.NoMonsterCompletion;
 import de.hegi.nomonsterplugin.listeners.EntitySpawnEventListener;
 import de.hegi.nomonsterplugin.config.Config;
 import org.bukkit.Bukkit;
@@ -13,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public final class Main extends JavaPlugin {
 
@@ -31,6 +33,7 @@ public final class Main extends JavaPlugin {
     manager.registerEvents(new EntitySpawnEventListener(), this);
 
     getCommand("nomonster").setExecutor(new NoMonsterCommand());
+    getCommand("nomonster").setTabCompleter(new NoMonsterCompletion());
   }
 
   @Override
@@ -45,4 +48,5 @@ public final class Main extends JavaPlugin {
   public static Main getInstance() {
     return instance;
   }
+
 }
