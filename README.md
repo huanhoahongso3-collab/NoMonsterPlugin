@@ -6,7 +6,7 @@ Stop spawning of Monsters, even if the difficulty is not peaceful.
 
 ### /nomonster
 
-enable or disable the plugin for all worlds or a single worlds
+enable or disable the plugin for all worlds or a single world
 
 #### usage
 
