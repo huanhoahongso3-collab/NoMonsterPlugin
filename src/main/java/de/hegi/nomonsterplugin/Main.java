@@ -1,5 +1,6 @@
 package de.hegi.nomonsterplugin;
 
+import de.hegi.nomonsterplugin.Recipes.RecipesManager;
 import de.hegi.nomonsterplugin.commands.NoMonsterCommand;
 import de.hegi.nomonsterplugin.commands.completion.NoMonsterCompletion;
 import de.hegi.nomonsterplugin.listeners.EntitySpawnEventListener;
@@ -35,7 +36,8 @@ public final class Main extends JavaPlugin {
     getCommand("nomonster").setExecutor(new NoMonsterCommand());
     getCommand("nomonster").setTabCompleter(new NoMonsterCompletion());
 
-
+    RecipesManager recipesManager = new RecipesManager();
+    recipesManager.addAllRecipes();
   }
 
   @Override

@@ -7,16 +7,15 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 
-public class CustomTridentRecipe {
+public class CustomGhastTearRecipe {
 
     public static ShapedRecipe getRecipe() {
         NamespacedKey key = new NamespacedKey(Main.getInstance(), "nomonster");
-        ShapedRecipe recipe = new ShapedRecipe(key,new ItemStack(Material.TRIDENT, 1));
+        ShapedRecipe recipe = new ShapedRecipe(key,new ItemStack(Material.GHAST_TEAR, 1));
 
-        recipe.shape(" DD", " HD", "P  ");
-        recipe.setIngredient('D', Material.DIAMOND);
-        recipe.setIngredient('H', Material.HEART_OF_THE_SEA);
-        recipe.setIngredient('P', Material.PRISMARINE_SHARD);
+        recipe.shape("QQQ", "QBQ", "QQQ");
+        recipe.setIngredient('Q', Material.QUARTZ);
+        recipe.setIngredient('B', Material.BLAZE_POWDER);
 
         return recipe;
     }

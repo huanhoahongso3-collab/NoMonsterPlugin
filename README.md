@@ -34,8 +34,8 @@ enable or disable the plugin for all worlds or a single world
     - creeper head
     - wither skeleton skull
   - slime
-  - trident
-  - ghast tear
+  - ~~trident~~
+  - ~~ghast tear~~
   - ender pearl
   - blaze rod
   - shulker shell
