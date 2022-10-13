@@ -34,6 +34,8 @@ public final class Main extends JavaPlugin {
 
     getCommand("nomonster").setExecutor(new NoMonsterCommand());
     getCommand("nomonster").setTabCompleter(new NoMonsterCompletion());
+
+
   }
 
   @Override
