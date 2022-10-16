@@ -22,10 +22,10 @@ enable or disable the plugin for all worlds or a single world
 ## ToDo List
 
 - add additional ways to get monster drop items
-  - bone
-  - spider eye
+  - ~~bone~~
+  - ~~spider eye~~
   - rotten flesh
-  - strings
+  - ~~string~~
   - gunpowder
   - music discs
   - monster heads
@@ -36,8 +36,8 @@ enable or disable the plugin for all worlds or a single world
   - slime
   - ~~trident~~
   - ~~ghast tear~~
-  - ender pearl
-  - blaze rod
+  - ~~ender pearl~~
+  - ~~blaze rod~~
   - shulker shell
   - totem of undying
   - phantom membrane
