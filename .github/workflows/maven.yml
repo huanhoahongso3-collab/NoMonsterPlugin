@@ -1,0 +1,48 @@
+name: Build Minecraft Plugin
+
+on:
+  push:
+    branches:
+      - main  # Run on push to the 'main' branch (or adjust as needed)
+  pull_request:
+    branches:
+      - main  # Run on pull request to 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'  # Ensure you're using Java 17 or the version you require
+        distribution: 'adoptopenjdk'
+
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: Build with Maven
+      run: mvn clean package -DskipTests=true  # Skipping tests can speed up the process
+
+    - name: Upload Plugin JAR artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-minecraft-plugin
+        path: target/*.jar  # Uploads the JAR file from the target folder
+
+    - name: Deploy to Server (Optional)
+      if: success()
+      run: |
+        echo "Deploying plugin to Minecraft server..."
+        # Replace this with your deployment steps, e.g., copying the JAR file to a remote server
+        # or triggering an action to upload it to a repository like SpigotMC or your own server.
+
