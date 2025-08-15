@@ -34,7 +34,7 @@ jobs:
       run: mvn clean package -DskipTests=true  # Skipping tests can speed up the process
 
     - name: Upload Plugin JAR artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: my-minecraft-plugin
         path: target/*.jar  # Uploads the JAR file from the target folder
